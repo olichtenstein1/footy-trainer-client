@@ -6,7 +6,13 @@ export const NavBar = () => {
   const history = useHistory()
   return (
     <nav>
+      <div className="navBar">
+        <div className="navBar-item">
       <Link to="/">Home</Link>
+      </div>
+      <div className="navBar-item">
+      <Link to="/footy_users/myprofile">My Profile</Link>
+      </div>
       {
         localStorage.getItem("auth_token") !== null ?
           <button onClick={() => {
@@ -21,6 +27,7 @@ export const NavBar = () => {
             <Link to="/register">Register</Link>
           </>
       }
+      </div>
     </nav>
   )
 }

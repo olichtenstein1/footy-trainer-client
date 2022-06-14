@@ -1,6 +1,6 @@
 export const getCategories = () => {
     return fetch("http://localhost:8000/categories", {
-        headers:{
+        headers: {
             "Authorization": `Token ${localStorage.getItem("lu_token")}`
         }
     })
@@ -9,7 +9,7 @@ export const getCategories = () => {
 
 export const getTopics = () => {
     return fetch("http://localhost:8000/topics", {
-        headers:{
+        headers: {
             "Authorization": `Token ${localStorage.getItem("lu_token")}`
         }
     })
@@ -18,17 +18,17 @@ export const getTopics = () => {
 
 
 export const getSingleCategory = (categoryId) => {
-    return fetch (`http://localhost:8000/categories/${categoryId}`, {
-        headers:{
+    return fetch(`http://localhost:8000/categories/${categoryId}`, {
+        headers: {
             "Authorization": `Token ${localStorage.getItem("lu_token")}`
         }
     })
-    .then(response => response.json())
+        .then(response => response.json())
 }
 
 export const getPostsByCategory = (categoryId) => {
     return fetch(`http://localhost:8000/posts/post_by_category?category=${categoryId}`, {
-        headers:{
+        headers: {
             "Authorization": `Token ${localStorage.getItem("lu_token")}`
         }
     })
@@ -37,14 +37,24 @@ export const getPostsByCategory = (categoryId) => {
 
 export const createPost = (post) => {
     const requestOptions = {
-        method: 'POST' ,
-        headers:{
+        method: 'POST',
+        headers: {
             "Content-Type": "application/json",
             "Authorization": `Token ${localStorage.getItem("lu_token")}`
         },
-        body: JSON.stringify(post) 
+        body: JSON.stringify(post)
     }
 
-    return fetch ("http://localhost:8000/posts", requestOptions)
-    .then(response => response.json())
+    return fetch("http://localhost:8000/posts", requestOptions)
+        .then(response => response.json())
+}
+
+export const getSinglePost = (postId) => {
+    return fetch(`http://localhost:8000/posts/${postId}`, {
+        headers: {
+            "Authorization": `Token ${localStorage.getItem("lu_token")}`
+        }
+    }
+    )
+        .then(response => response.json())
 }

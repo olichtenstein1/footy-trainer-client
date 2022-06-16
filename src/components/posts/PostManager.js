@@ -49,6 +49,19 @@ export const createPost = (post) => {
         .then(response => response.json())
 }
 
+export const updatePost = (post, postId) => {
+    const requestOptions = {
+        method: 'PUT',
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Token ${localStorage.getItem("lu_token")}`
+        },
+        body: JSON.stringify(post)
+    }
+    return fetch(`http://localhost:8000/posts/${postId}`, requestOptions)
+    
+}
+
 export const getSinglePost = (postId) => {
     return fetch(`http://localhost:8000/posts/${postId}`, {
         headers: {

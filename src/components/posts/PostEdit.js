@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { useParams, useHistory } from "react-router-dom"
-import { getSinglePost, getTopics } from "./PostManager"
+import { getSinglePost, getTopics, updatePost } from "./PostManager"
+import "./PostEdit.css"
 
 export const PostEdit = () => {
     const [post, assignPost] = useState({})
@@ -12,6 +13,10 @@ export const PostEdit = () => {
         () => {
             getSinglePost(postId)
                 .then(data => {
+                    data.topics = data.topics.map(t => {
+                        return t.id
+                        
+                    })
                     assignPost(data)
                 })
 
@@ -26,6 +31,8 @@ export const PostEdit = () => {
 
 
     }, [])
+
+    
 
 
     const changePostState = (p) => {
@@ -50,7 +57,7 @@ export const PostEdit = () => {
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="title"> Title: </label>
-                    <input type="text" name="title" required autoFocus className="form-control"
+                    <input type="text" name="title"  required autoFocus className="form-control"
                         value={post.title}
                         onChange={changePostState}
                     />
@@ -60,10 +67,12 @@ export const PostEdit = () => {
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="description">Description: </label>
-                    <input type="text" name="description" required autoFocus className="form-control"
+                    <div className="textbox">
+                    <textarea type="text" name="description" size={"50"} required autoFocus className="form-control"
                         value={post.description}
                         onChange={changePostState}
-                    />
+                        />
+                        </div>
                 </div>
             </fieldset>
 
@@ -78,8 +87,8 @@ export const PostEdit = () => {
                                     topic.label
                                 }
                             </label>
-                                <input type="checkbox" id={topic.id} name="topics" autoFocus className="form-control"
-
+                                <input type="checkbox" checked={post.topics?.includes(topic.id)} id={topic.id} name="topics" autoFocus className="form-control"
+                                    
                                     onChange={changePostState}
                                 /> </>
 
@@ -123,7 +132,7 @@ export const PostEdit = () => {
                         category: post.category
                     }
                     updatePost(newPost, postId)
-                        .then(() => history.push(`/posts/post_by_category/${newPost.category}`))
+                        .then(() => history.push(`/posts/${postId}`))
 
                 }}
                 className="buttonCreate">Update</button>

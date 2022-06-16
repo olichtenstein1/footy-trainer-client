@@ -4,6 +4,7 @@ import { Home } from "./Home"
 import { AllPostsByCategory } from "./posts/AllPostsByCategory"
 import { CommentForm } from "./posts/CommentForm"
 import { PostDetails } from "./posts/PostDetails"
+import { PostEdit } from "./posts/PostEdit"
 import { PostForm } from "./posts/PostForm"
 import { FootyUserDetails } from "./users/FootyUserDetails"
 
@@ -25,6 +26,10 @@ export const ApplicationViews = () => {
 
             <Route exact path="/posts/:postId(\d+)">
                 <PostDetails />
+            </Route>
+
+            <Route exact path="/posts/edit/:postId(\d+)">
+                <PostEdit />
             </Route>
 
             <Route exact path="/posts/:postId(\d+)/comment">

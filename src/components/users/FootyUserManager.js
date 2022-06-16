@@ -1,5 +1,5 @@
 export const getSingleFootyUser = (footyUserId) => {
-    return fetch(`http://localhost:8000/footy_users/${footyUserId}`, {
+    return fetch(`http://localhost:8000/footy_users/id`, {
         headers:{
             "Authorization": `Token ${localStorage.getItem("lu_token")}`
         }

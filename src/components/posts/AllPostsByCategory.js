@@ -25,7 +25,7 @@ const history = useHistory()
     return (
             <>
         <article className="posts">
-            <h1>{category.label}</h1>
+            <h1>Posts including {category.label}</h1>
             <button className="createButton"
                 onClick={() => {
                     history.push({ pathname: "/posts/new" })
@@ -35,7 +35,7 @@ const history = useHistory()
                 posts.map(post => {
                     return <section key={`post--${post.id}`} className="post">
                         <h2>{post.title}</h2>
-                        <div className="post__topic">Topic: {post.topic.label} </div>
+                        {/* <div className="post__topic">Topic: {post.topic.label} </div> */}
                         <div className="post__difficultyLevel">Difficulty Level: {post.difficulty_level}</div>
                         <div className="post__footyUser">Created By: {post.footy_user.user.first_name} {post.footy_user.user.last_name}</div>
                         <button className="viewPost"

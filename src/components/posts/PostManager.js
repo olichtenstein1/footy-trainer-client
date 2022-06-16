@@ -58,3 +58,17 @@ export const getSinglePost = (postId) => {
     )
         .then(response => response.json())
 }
+
+export const createComment = (comment) => {
+    const requestOptions = {
+        method: 'POST' ,
+        headers:{
+            "Content-Type": "application/json",
+            "Authorization": `Token ${localStorage.getItem("lu_token")}`
+        },
+        body: JSON.stringify(comment) 
+    }
+// fix this fetch return
+    return fetch (`http://localhost:8000/comments`, requestOptions)
+    .then(response => response.json())
+}

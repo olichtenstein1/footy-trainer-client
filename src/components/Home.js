@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { useHistory } from "react-router-dom" 
 import { getCategories, getPostsByCategory, getSingleCategory } from "./posts/PostManager"
+import "./Home.css"
+
 
 export const Home = () => {
     const { categoryId } = useParams()
@@ -35,8 +37,10 @@ export const Home = () => {
 
     return (
     <article className="home">
+        <div className="title">
         <h1>Footy Trainer</h1>
-        <div className="form-group">
+        </div>
+        <div className="form-grouper">
                         <label htmlFor="post_category">Choose Category:</label>
                         <select
                         name="category"

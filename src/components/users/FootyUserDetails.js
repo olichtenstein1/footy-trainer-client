@@ -21,11 +21,10 @@ export const FootyUserDetails = () => {
 
     return (
         <>
-            <h1>Hello World</h1>
+            <h1>{footyUser.user?.username}</h1>
             <section className="footyUserDetails">
-            <div>Picture: <img src={`${footyUser.profile_picture}`} width={300} height={300} /></div>
+            <div><img src={`${footyUser.profile_picture}`} width={200} height={300} /></div>
             <div>Name: {footyUser.user?.first_name} {footyUser.user?.last_name}</div>
-            <div>Username: {footyUser.user?.username}</div>
             <div>Email: {footyUser.user?.email}</div>
             </section>
         </>

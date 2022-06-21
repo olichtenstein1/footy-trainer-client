@@ -16,7 +16,7 @@ export const PostForm = () => {
         description: "",
         title: "",
         video_tutorial: "",
-        category: 1,
+        category: categoryId,
         topics: []
     })
     

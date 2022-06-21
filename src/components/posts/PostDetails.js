@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react"
 import { useHistory } from "react-router-dom"
 import { useParams } from "react-router-dom"
-import { getSinglePost } from "./PostManager"
+import { deleteComment, getCurrentUser, getSinglePost } from "./PostManager"
 
 export const PostDetails = () => {
     const { postId } = useParams()
     const [post, setPost] = useState({})
+    const [currentUser, setUser] = useState({})
     const history = useHistory()
+   
 
 
     useEffect(
@@ -19,6 +21,20 @@ export const PostDetails = () => {
 
         }, []
     )
+
+    useEffect(() => {
+        getCurrentUser(currentUser)
+        .then(data => {
+            setUser(data)
+        })
+    }, [])
+
+    const deleteThenUpdate = (comment) => {
+        deleteComment(comment)
+            .then(() => getSinglePost(postId))
+            .then((data) => setPost(data))
+    }
+    
 
 
     return (
@@ -39,13 +55,34 @@ export const PostDetails = () => {
                     />{" "}
                 </div>
                 <div className="post__difficulty_level">Difficulty Level: {post.difficulty_level}</div>
-                <button className="button"
+                {
+                    currentUser.id==post.footy_user?.id &&
+                        <button className="button"
                         onClick={() => {
                             history.push({ pathname: `/posts/edit/${post.id}` })
                         }}
                     >Edit/Update Post</button>
+                }
                 <div className="post__comments"> Comments: {post.comments?.map(
-                        comment => <p>{comment.footy_user.user.username} - {comment.content}</p>
+                        comment => <p>{comment.footy_user.user.username} - {comment.content}
+                        {
+                            currentUser.id==comment.footy_user?.id && 
+                        <button className="button"
+                        onClick={() => {
+                            deleteThenUpdate(comment.id)
+                        }}
+                        
+                        >Delete Comment</button>
+                    }
+                    {
+                    currentUser.id==comment.footy_user?.id &&
+                        <button className="button"
+                        onClick={() => {
+                            history.push({ pathname: `/posts/${post.id}/commentEdit/${comment.id}` })
+                        }}
+                    >Edit/Update Comment</button>
+                    }
+                        </p>
                     )}</div>
 
                 <button className="comment-button"

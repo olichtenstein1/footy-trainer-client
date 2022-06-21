@@ -2,6 +2,7 @@ import React from "react"
 import { Route } from "react-router-dom"
 import { Home } from "./Home"
 import { AllPostsByCategory } from "./posts/AllPostsByCategory"
+import { CommentEdit } from "./posts/CommentEdit"
 import { CommentForm } from "./posts/CommentForm"
 import { PostDetails } from "./posts/PostDetails"
 import { PostEdit } from "./posts/PostEdit"
@@ -20,7 +21,7 @@ export const ApplicationViews = () => {
                 <AllPostsByCategory />
             </Route>
 
-            <Route exact path="/posts/new">
+            <Route exact path="/posts/new/:categoryId(\d+)">
                 <PostForm />
             </Route>
 
@@ -34,6 +35,10 @@ export const ApplicationViews = () => {
 
             <Route exact path="/posts/:postId(\d+)/comment">
                 <CommentForm />
+            </Route>
+
+            <Route exact path="/posts/:postId(\d+)/commentEdit/:commentId(\d+)">
+                <CommentEdit />
             </Route>
 
             <Route exact path="/footy_users/myprofile">

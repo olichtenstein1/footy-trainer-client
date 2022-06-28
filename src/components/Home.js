@@ -38,18 +38,19 @@ export const Home = () => {
     return (
     <article className="home">
         <div className="title">
-        <h1>Footy Trainer</h1>
+        
         </div>
-        <div className="form-grouper">
+        <div className="cat-dropdown">
                         <label htmlFor="post_category">Choose Category:</label>
+                        
                         <select
                         name="category"
                         value={currentCategory.id}
                         onChange={changeCategoryState}
-                                            
-                            required autoFocus
-                            className="form-control"
-                            >
+                        
+                        required autoFocus
+                        className="form-control"
+                        >
 
                              <option value="0" key={'category'}>Choose a Category </option>
                             {
@@ -59,9 +60,10 @@ export const Home = () => {
                                             {c.label}
                                         </option>
                                     }
-                                )
-                            }
+                                    )
+                                }
                             </select>
+                                
                             <button className="button"
                                 onClick={() => {
                                    getPostsByCategory(currentCategory.category)

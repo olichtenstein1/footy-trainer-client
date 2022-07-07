@@ -41,7 +41,7 @@ export const Home = () => {
         
         </div>
         <div className="cat-dropdown">
-                        <label htmlFor="post_category">Choose Category:</label>
+                        <label htmlFor="post_category"></label>
                         
                         <select
                         name="category"
@@ -64,7 +64,7 @@ export const Home = () => {
                                 }
                             </select>
                                 
-                            <button className="button"
+                            <button className="button1"
                                 onClick={() => {
                                    getPostsByCategory(currentCategory.category)
                                    history.push({ pathname: `/posts/post_by_category/${currentCategory.category}` })

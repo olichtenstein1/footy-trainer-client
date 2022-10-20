@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { useHistory } from "react-router-dom" 
+import "./AllPostsByCategory.css"
 import { deletePost, getCurrentUser, getPostsByCategory, getSingleCategory } from "./PostManager"
 
 
@@ -41,12 +42,15 @@ const deleteThenUpdate = (postId) => {
     return (
             <>
         <article className="posts">
+            <div className="postTitle">
             <h1>Posts including {category.label}</h1>
+            </div>
             <button className="createButton"
                 onClick={() => {
                     history.push({ pathname: `/posts/new/${categoryId}` })
                 }}
             >Add Post</button>
+            
             {
                 posts.map(post => {
                     return <section key={`post--${post.id}`} className="post">
@@ -56,7 +60,7 @@ const deleteThenUpdate = (postId) => {
                         <div className="post__footyUser">Created By: {post.footy_user.user.first_name} {post.footy_user.user.last_name}</div>
                         {
                             userId.id==post.footy_user.id && 
-                        <button className="button"
+                        <button className="deletePostButton"
                         onClick={() => {
                             deleteThenUpdate(post.id)
                         }}
@@ -64,7 +68,7 @@ const deleteThenUpdate = (postId) => {
                         >Delete Post</button>
                     }
 
-                        <button className="viewPost"
+                        <button className="viewPostButton"
                 onClick={() => {
                     history.push({ pathname: `/posts/${post.id}` })
                 }}

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { useParams, useHistory } from "react-router-dom"
 import { getSinglePost, getTopics, updatePost } from "./PostManager"
-import "./PostEdit.css"
+// import "./PostEdit.css"
 
 export const PostEdit = () => {
     const [post, assignPost] = useState({})

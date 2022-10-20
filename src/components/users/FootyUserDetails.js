@@ -3,7 +3,6 @@ import { useEffect, useState } from "react"
 import { getSingleFootyUser } from "./FootyUserManager"
 
 
-
 export const FootyUserDetails = () => {
     const { footyUserId } = useParams()
     const [footyUser, setFootyUser] = useState({})

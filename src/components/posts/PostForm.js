@@ -112,6 +112,7 @@ export const PostForm = () => {
                 <div className="form-group">
                     <label htmlFor="video_tutorial">Video Tutorial: </label>
                     <input type="url" name="video_tutorial" required autoFocus className="form-control"
+                    placeholder="Paste Embedded URL"
                         value={currentPost.video_tutorial}
                         onChange={changePostState}
                     />

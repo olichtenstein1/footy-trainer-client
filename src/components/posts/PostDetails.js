@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react"
 import { useHistory } from "react-router-dom"
 import { useParams } from "react-router-dom"
 import { deleteComment, getCurrentUser, getSinglePost } from "./PostManager"
+import "./PostDetails.css"
 
 export const PostDetails = () => {
     const { postId } = useParams()

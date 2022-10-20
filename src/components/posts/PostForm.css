@@ -1,7 +1,25 @@
 .form-group{
     padding: 20px;
+    margin: 20px;
 }
-
-.buttonCreate{
+.buttonCreate {
+    display: inline-block;
+    border-radius: 4px;
+    background-color: rgb(7, 71, 0);
+    border: 2px solid black;
+    border-radius: 4px;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 28px;
     padding: 10px;
-}
+    width: 300px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 30px;
+  }
+
+  .buttonCreate:active {
+    box-shadow: 0 5px #666;
+  transform: translateY(16px);
+  opacity: 1;
+  }

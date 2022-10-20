@@ -1,0 +1,57 @@
+.container--login {
+    padding-top: 300px;
+    padding-left: 35%;
+    background: url(/src/components/images/footy\ trainer\ title\ \(1\).png);
+    background-size: contain;
+    background-position-x: 85% ;
+    background-repeat: no-repeat;
+    width: 30%;
+    height: 130px;
+    
+}
+
+.form--login {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+    background-color: rgb(190, 255, 181);
+   
+    
+}
+
+.form--body {
+    padding-right: 10%;
+}
+
+
+/* .button--close {
+    position: relative;
+    bottom: -2rem;
+}
+
+.dialog {
+    min-width: 15rem;
+    min-height: 5rem;
+}
+
+
+.form-control {
+    display: block;
+    width: 94%;
+    height: calc(1.5em + .75rem + 2px);
+    padding: 5px;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    -webkit-transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+
+ */
